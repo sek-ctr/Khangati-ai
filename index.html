@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1b">
+<title>KHANG'ATI AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d1b;color:white;font-family:Arial,sans-serif}
+header{padding:20px;background:#101a30;border-bottom:1px solid #263653}
+.logo{font-size:24px;font-weight:bold;color:#70c9ff}
+.logo span{color:#a78bfa}
+header p{color:#aab6ce;font-size:13px;margin-bottom:0}
+main{max-width:850px;margin:auto;padding:25px 16px}
+.welcome{text-align:center;margin:45px 0 30px}
+.welcome h1{font-size:32px;margin-bottom:10px}
+.welcome p{color:#aab6ce}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.feature{background:#111d34;border:1px solid #283a59;border-radius:14px;padding:17px}
+.feature b{display:block;margin-bottom:7px}
+.feature small{color:#aab6ce}
+#messages{margin-top:25px}
+.msg{padding:14px;margin:12px 0;border-radius:12px;line-height:1.5;white-space:pre-wrap}
+.user{background:#24385b;margin-left:35px}
+.ai{background:#111d34;margin-right:35px}
+.input-area{display:flex;gap:9px;margin-top:25px}
+input{min-width:0;flex:1;padding:15px;border-radius:12px;border:1px solid #344563;background:#111d34;color:white;font-size:16px}
+button{border:0;border-radius:12px;background:#3988f5;color:white;padding:0 20px;font-weight:bold}
+footer{text-align:center;color:#7e8da8;font-size:12px;padding:25px}
+@media(max-width:450px){.welcome h1{font-size:26px}.feature{padding:13px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">KHANG'ATI <span>AI</span></div>
+  <p>Your world of intelligent assistance</p>
+</header>
+<main>
+  <section class="welcome">
+    <h1>Welcome to KHANG'ATI AI</h1>
+    <p>One assistant. Many possibilities.</p>
+  </section>
+
+  <section class="features">
+    <div class="feature">💬 <b>AI Chat</b><small>Ask questions and explore ideas.</small></div>
+    <div class="feature">✍️ <b>AI Writer</b><small>Create messages and documents.</small></div>
+    <div class="feature">🌍 <b>Translator</b><small>Explore different languages.</small></div>
+    <div class="feature">📚 <b>Study Assistant</b><small>Learn something new.</small></div>
+    <div class="feature">🖼️ <b>Image Assistant</b><small>Get help with images.</small></div>
+    <div class="feature">🎙️ <b>Voice Assistant</b><small>Voice features coming soon.</small></div>
+  </section>
+
+  <section id="messages">
+    <div class="msg ai">Hello! Welcome to KHANG'ATI AI. What would you like help with?
+
+This is the first demo version. Connect an AI service to activate real AI answers.</div>
+  </section>
+
+  <div class="input-area">
+    <input id="question" placeholder="Ask KHANG'ATI AI..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</main>
+<footer>KHANG'ATI AI · Built for everyone</footer>
+<script>
+function sendMessage(){
+  const input=document.getElementById("question");
+  const value=input.value.trim();
+  if(!value)return;
+  const messages=document.getElementById("messages");
+  const user=document.createElement("div");
+  user.className="msg user";
+  user.textContent=value;
+  messages.appendChild(user);
+  const reply=document.createElement("div");
+  reply.className="msg ai";
+  reply.textContent="Thank you for your message! KHANG'ATI AI is currently in demo mode. Its real AI engine will be connected in the next development step.";
+  messages.appendChild(reply);
+  input.value="";
+  window.scrollTo(0,document.body.scrollHeight);
+}
+document.getElementById("question").addEventListener("keydown",function(e){
+  if(e.key==="Enter")sendMessage();
+});
+</script>
+</body>
+</html>
